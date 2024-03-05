@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <style>
+      .nav-item{
+      padding-left:60px;
+      }
+      .col-sm-3{
+      margin-top:40px;
+      margin-left:90px;
+      margin-bottom:40px;
+      }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        {% for i in b %}
+            <div class="col-sm-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{i.image.url}}" style="height:300px">
+                    <div class="card-body">
+                        <h5 class="card-title">{{i.name}}</h5>
+                        <p class="card-text">{{i.description}}</p>
+                        <a href="{% url 'movie1:movie_detail' i.id %}" class="btn btn-primary" style="width:250px;">Play Now</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>
